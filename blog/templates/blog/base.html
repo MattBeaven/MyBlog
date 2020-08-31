@@ -6,20 +6,37 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Alata">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"> 
     </head>
     <body>
-        <div class="page-header">
-            {% if user.is_authenticated %}
-            <a href="{%	url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            {% endif %}
-            <h1><a href = "/">Matt's Blog</a></h1>
+        <div class="sidenav">
+            <div class="sidenav-title">
+                <p>Matthew Beaven</p>
+                <p><img src="/static/images/profile-icon.png" style="width: 100px;height: 100px;"></p>
+            </div>
+            <div class="sidenav-body">
+                <p>Second year computer science student (BSc) at University of Birmingham</p>
+                <a href="https://github.com/MattBeaven">
+                <br><p><img src="/static/images/github-logo.png" style="width: 30px;height: 30px;"></p></a>
+                <p>My GitHub</p>
+            </div>
         </div>
+        
+        <div class="main">
+            <div class="page-header">
+                {% if user.is_authenticated %}
+                <a href="{%	url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                {% endif %}
+                <h1><a href = "/">Matt's Blog</a></h1>
+            </div>
 
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
+
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
         </div>
